@@ -8,7 +8,7 @@ class Book(models.Model):
     id = models.UUIDField(default=uuid4, primary_key=True, editable=False)
     title = models.CharField(max_length=100, unique=True)
     description = models.TextField()
-    author = models.CharField(max_length=50)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
